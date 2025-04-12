@@ -1,0 +1,17 @@
+Ime i prezime: Sara Simjanoska
+Broj na indeks: 221168
+
+1. Instalirav Git i kreirav profil na GIthub
+2. Napraviv promena na glavnata granka vo master
+3. Kreirav repozitorium 
+4. So git init inicijalizirav lokalen repozitorium
+5. git remote add origin za povrzuvanje na lokalniot 
+so oddalecheniot repozitorium
+6.Dodavanje na README.md i pravenje commit 
+7. git push origin master za sinhronizacija na
+lokanlna granka so oddalecheniot repozitorium
+8. Kreirav Issues vo Backlog
+9. Za chekorite od 13-19 ne mi se izvrshija uspeshno komandite inaku 
+bea upotrebeni git fetch origin i git add . 
+10. Opcijata za sozdavanje na nov pull request isto taka ne uspeav 
+da ja napravam
