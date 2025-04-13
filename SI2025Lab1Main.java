@@ -64,51 +64,67 @@ class TaskManager {
 
     // 1. Remove a task by name
     public void removeTask(String name) {
-        // TODO: Implement removal logic
+       tasks.removeIF(task->task.getName().equalsIgnoreCase(name));
     }
 
     // 2. Find all completed tasks
     public List<Task> getCompletedTasks() {
-        // TODO: Implement logic to return completed tasks
+        return tasks.stream().filter(Task::isCompleted)
+                              .collect(Collectors.toList));
         return new ArrayList<>();
     }
 
     // 3. List tasks sorted by name
     public void sortTasksByName() {
-        // TODO: Implement sorting logic
+        tasks.sort(Comparator.comparing(Task::getName));
     }
 
     // 4. Sort tasks by priority
     public void sortTasksByPriority() {
-        // TODO: Implement sorting by priority logic
+        tasks.sort(Comparator.comparing(Task::getPriority));
     }
 
     // 5. Filter tasks by category
     public List<Task> filterByCategory(String category) {
-        // TODO: Implement filtering logic
+        return task.stream()
+                   .filter(task -> task.getCategory.equalsIgnoreCase(category))
+                   .collect(Collectors).toList());
         return new ArrayList<>();
     }
 
     // 6. Find the highest-priority unfinished task
     public List<Task> getMostUrgentTasks() {
-        // TODO: Implement logic to find most urgent tasks
+        return tasks.stream()
+                .filter(task -> !task.isCompleted())
+                .sorted(Comparator.comparingInt(Task::getPriority))
+                .limit(1)
+                .collect(Collectors.toList());
         return new ArrayList<>();
     }
 
     // 7. Count tasks per category
     public Map<String, Integer> countTasksPerCategory() {
-        // TODO: Implement counting logic
+        return tasks.stream()
+                .collect(Collectors.groupingBy(Task::getCategory, Collectors.reducing(0, e -> 1, Integer::sum)));
+}
         return new HashMap<>();
     }
 
     // 8. Mark a task as completed by name
     public void markTaskCompleted(String name) {
-        // TODO: Implement completion logic
+        for (Task task : tasks) {
+        if (task.getName().equalsIgnoreCase(name)) {
+            task.setCompleted(true);
+        }
     }
+}
 
     // 9. Mark all tasks in a category as completed
     public void markCategoryCompleted(String category) {
-        // TODO: Implement bulk completion logic
+         for (Task task : tasks) {
+        if (task.getCategory().equalsIgnoreCase(category)) {
+            task.setCompleted(true);
+        }
     }
 }
 
